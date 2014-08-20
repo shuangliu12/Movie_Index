@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= @movies_info[0]['title']%></title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+
+  <body>
+
+         <h1> <%= @movies_info[0]['title'] %></h1>
+
+    <ul>
+     <li>year released: <%= @movies_info[0]['year'] %></li>
+     <li>synopsis: <%= @movies_info[0]['synopsis'] %></li>
+     <li>rating: <%= @movies_info[0]['rating'] %></li>
+     <li>genre: <%= @movies_info[0]['genre'] %></li>
+     <li>studio: <%= @movies_info[0]['studio'] %></li>
+
+
+    </ul>
+  </body>
+</html>

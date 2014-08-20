@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>movies</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+
+  <body>
+    <h1>movies</h1>
+    <h2>Movie List</h2>
+
+    <ul>
+     <% @all_movies.each do |movie|%>
+         <li> <a href="/movies/<%= movie['id'] %>">
+                  <%= movie['title']%>
+              </a>
+         </li>
+      <% end %>
+    </ul>
+  </body>
+</html>
