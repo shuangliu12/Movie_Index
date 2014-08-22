@@ -11,8 +11,28 @@ def import_csv(filename)
   movies
 end
 
-get '/movies/:page' do
+get '/movies' do
   @all_movies = import_csv(MOVIE_FILENAME)
+  @sorted = @all_movies.sort_by{|movie| movie['title']}
+
+  @page_number = params[:page] || 1
+  @query = params[:query]
+
+  if @query == nil
+  # start_index = 10*(@page_number-1)
+  # end_index = 10*(@page_number-1)+9
+  @each_page = @sorted[10*(@page_number.to_i-1)...10*(@page_number.to_i-1)+20]
+
+  else
+  @each_page = @all_movies.select do |movie|
+    if movie['synopsis'] != nil
+      movie['title'].include?(@query)||movie['synopsis'].include?(@query)
+    else
+      movie['title'].include?(@query)
+    end
+  end
+end
+
  erb :movies
 end
 
